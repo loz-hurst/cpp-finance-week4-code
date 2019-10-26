@@ -51,6 +51,7 @@ void VectorFun() {
     std::vector<double> vec_2 (10); // Creates a vector with 10 elements, defaults to 0 for initial values
     std::vector<double> vec_3 (10, 3); // Specify a value for the initial values
     std::vector<std::string> vec_4 {"Hello", "world", "and", "universe"};
+    std::vector<int> vec_5; // Empty vector
 
     std::cout << "*** vec_1 ***" << std::endl;
     PrintVector(vec_1); PrintStats(vec_1);
@@ -76,4 +77,8 @@ void VectorFun() {
     vec_4.emplace_back("foo"); // Remove last element
     PrintVector(vec_4); PrintStats(vec_4);
 
+    std::cout << "*** vec_5 ***" << std::endl;
+    PrintVector(vec_5); PrintStats(vec_5);
+    vec_5.reserve(100); // Reserve space the maximum number of values we think we might need
+    PrintVector(vec_5); PrintStats(vec_5);
 }
