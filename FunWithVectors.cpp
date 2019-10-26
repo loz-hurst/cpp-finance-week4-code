@@ -24,6 +24,7 @@
 
 #include "FunWithVectors.hpp"
 #include <iostream>
+#include <string>
 #include <vector>
 
 // Print out the size, capacity, front and back of the given vector.
@@ -39,7 +40,7 @@ template<typename T> void PrintStats(const std::vector<T> &vec) {
 
 // Print out the contents of the vector as a space-sperated list
 template<typename T> void PrintVector(const std::vector<T> &vec) {
-    for (T item : vec) {
+    for (const T &item : vec) {
         std::cout << item << " ";
     }
     std::cout << std::endl;
@@ -49,10 +50,11 @@ void VectorFun() {
     std::vector<double> vec_1 {2.5, 3.6, 4.8}; // Creates a vector with these values as the contents
     std::vector<double> vec_2 (10); // Creates a vector with 10 elements, defaults to 0 for initial values
     std::vector<double> vec_3 (10, 3); // Specify a value for the initial values
+    std::vector<std::string> vec_4 {"Hello", "world", "and", "universe"};
 
     std::cout << "*** vec_1 ***" << std::endl;
     PrintVector(vec_1); PrintStats(vec_1);
-    vec_1.push_back(5.5); // Add an element to the end
+    vec_1.emplace_back(5.5); // Add an element to the end
     PrintVector(vec_1); PrintStats(vec_1);
     vec_1.resize(6); // Changes the vector to have 6 elements, defaults to 0 for new elements
     PrintVector(vec_1); PrintStats(vec_1);
@@ -68,4 +70,10 @@ void VectorFun() {
     PrintVector(vec_3); PrintStats(vec_3);
     vec_3.pop_back(); // Remove last element
     PrintVector(vec_3); PrintStats(vec_3);
+
+    std::cout << "*** vec_4 ***" << std::endl;
+    PrintVector(vec_4); PrintStats(vec_4);
+    vec_4.emplace_back("foo"); // Remove last element
+    PrintVector(vec_4); PrintStats(vec_4);
+
 }
