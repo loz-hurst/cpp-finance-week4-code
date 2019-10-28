@@ -1,5 +1,5 @@
 /*
- * Code for week 3 exercises of C++ for Finance.
+ * Code for week 4 exercises of C++ for Finance.
  *
  * Copyright 2019 Laurence Alexander Hurst
  *
@@ -22,12 +22,43 @@
  * full licence.
  */
 
- #include "FunWithVectors.hpp"
+#include "FunWithVectors.hpp"
+#include "VectorMath.hpp"
+#include "SquareNumberVectors.hpp"
+#include "Sort.hpp"
+#include <iostream>
+#include <vector>
+#include <random>
 
 int main() {
 
     // Exercise 1
     VectorFun();
+    std::vector<int> ex_1_vec {1, 2, 3, 4, 5, 6};
+    CumulativeSum(ex_1_vec);
+    FibonacciFill(ex_1_vec);
+    std::cout << "Fibonacci sequence: ";
+    for(auto &item : ex_1_vec) {
+        std::cout << item << " ";
+    }
+    std::cout << std::endl;
+
+    // Exercise 2
+    std::vector<int> ex2_vec {3, 5, 12, 18, 25, 100, 65, 81};
+    std::cout << "There are " << CountSquares(ex2_vec) << " square numbers in the vector." << std::endl;
+    std::cout << "The first square number is at " << WhereSquare(ex2_vec) << std::endl;
+
+    // Exercise 3
+    // Fill a list with 100 random ints
+    std::vector<int> ex3_vec (100);
+    std::random_device generator;
+    std::uniform_int_distribution<int> distribution(1,100000);
+    std::generate(std::begin(ex3_vec), std::end(ex3_vec), [&] () {return distribution(generator);});
+
+    Sort(ex3_vec);
+    // *vv* put your std::sort version below this line *vv*
+
+    // *^^* put your std::sort version above this line *^^*
 
     return 0;
 }

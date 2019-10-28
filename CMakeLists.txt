@@ -24,4 +24,4 @@ project(cpp_finance_week4_code)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(cpp_finance_week4_code main.cpp FunWithVectors.cpp FunWithVectors.hpp)
+add_executable(cpp_finance_week4_code main.cpp FunWithVectors.cpp FunWithVectors.hpp SquareNumberVectors.cpp SquareNumberVectors.hpp VectorMath.cpp VectorMath.hpp Sort.cpp Sort.hpp)
