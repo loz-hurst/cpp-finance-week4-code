@@ -23,7 +23,9 @@
  */
 
 #include "FunWithVectors.hpp"
+#include <algorithm>
 #include <iostream>
+#include <iterator>
 #include <string>
 #include <vector>
 
@@ -38,11 +40,10 @@ template<typename T> void PrintStats(const std::vector<T> &vec) {
     std::cout << std::endl;
 }
 
-// Print out the contents of the vector as a space-sperated list
+// Print out the contents of the vector as a space-separated list
 template<typename T> void PrintVector(const std::vector<T> &vec) {
-    for (const T &item : vec) {
-        std::cout << item << " ";
-    }
+    const std::ostream_iterator<T> out_iter {std::cout, " "};
+    std::copy(vec.begin(), vec.end(), out_iter);
     std::cout << std::endl;
 }
 
