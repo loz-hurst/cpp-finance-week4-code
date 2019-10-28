@@ -23,12 +23,15 @@
  */
 
 #include "FunWithVectors.hpp"
-#include "VectorMath.hpp"
+#include "QuadraticMap.hpp"
 #include "SquareNumberVectors.hpp"
 #include "Sort.hpp"
+#include "VectorMath.hpp"
 #include <iostream>
-#include <vector>
+#include <map>
 #include <random>
+#include <utility>
+#include <vector>
 
 int main() {
 
@@ -59,6 +62,11 @@ int main() {
     // *vv* put your std::sort version below this line *vv*
 
     // *^^* put your std::sort version above this line *^^*
+
+    // Exercise 4
+    std::map<int,std::pair<int,int>> ex4_z;
+    FindZ(100, ex4_z);
+    PrintQuadMap(ex4_z);
 
     return 0;
 }
